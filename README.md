@@ -1,14 +1,14 @@
-# ARA — click to rename in Obsidian, just like Windows File Explorer.
+# Ara — rename files like Windows File Explorer
 
-Click an already-active file in Obsidian's file explorer to rename it inline — just like Windows File Explorer.
+Click an already-active file in Obsidian's file explorer to rename it inline. No right-click, no F2, no context menu.
 
-![](https://img.shields.io/badge/version-1.0.0-blue)
+![](https://img.shields.io/badge/version-1.0.1-blue)
 
 ## How it works
 
-1. Click a file in the file explorer — opens it (default Obsidian behavior)
-2. Click the **already-active** file again — triggers inline rename
-3. Type the new name, press `Enter` — done
+1. Click a file → opens it (default Obsidian behavior)
+2. Click the **already-active** file again → inline rename
+3. Type the new name, press `Enter` → done
 
 A smart cooldown prevents accidental rename when double-clicking to open.
 
@@ -16,7 +16,7 @@ A smart cooldown prevents accidental rename when double-clicking to open.
 
 ### Community Plugins (recommended)
 
-1. Settings → Community Plugins → Browse → Search "Inline Rename"
+1. Settings → Community Plugins → Browse → Search "Ara"
 2. Install and enable
 
 ### Manual
