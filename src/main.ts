@@ -166,17 +166,6 @@ export default class InlineRenamePlugin extends Plugin {
         input.type = "text";
         input.value = originalName;
         input.className = "inline-rename-input";
-        input.style.cssText = `
-            position: relative; z-index: 10;
-            width: 100%; height: 24px; line-height: 24px;
-            padding: 0 6px; margin: 0;
-            border: 1.5px solid var(--interactive-accent);
-            border-radius: 4px;
-            font-family: inherit; font-size: inherit;
-            color: var(--text-normal);
-            background: var(--background-primary);
-            outline: none; box-sizing: border-box;
-        `;
 
         // Stop clicks on input from navigating
         input.addEventListener("click", (e) => e.stopPropagation());
