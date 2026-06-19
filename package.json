@@ -1,0 +1,20 @@
+{
+  "name": "ara",
+  "version": "1.0.0",
+  "description": "Obrename — click an already-active file in the file explorer to rename it inline, like Windows File Explorer.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+    "lint": "tsc -noEmit -skipLibCheck"
+  },
+  "keywords": ["obsidian", "plugin", "file-explorer", "rename"],
+  "author": "Claude",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "esbuild": "^0.24.0",
+    "obsidian": "^1.5.0",
+    "typescript": "^5.4.0"
+  }
+}

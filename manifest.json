@@ -1,0 +1,10 @@
+{
+  "id": "ara",
+  "name": "ARA",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Click an already-active file in the file explorer to rename it inline — just like Windows File Explorer.",
+  "author": "Claude",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}
