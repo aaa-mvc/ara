@@ -9,7 +9,7 @@
     "lint": "tsc -noEmit -skipLibCheck"
   },
   "keywords": ["obsidian", "plugin", "file-explorer", "rename"],
-  "author": "Claude",
+  "author": "Ax",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.0.0",
