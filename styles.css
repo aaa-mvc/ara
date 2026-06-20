@@ -1,3 +1,8 @@
+/* ── Hide original text during rename ─────────────────────────── */
+.inline-rename-hidden {
+    display: none;
+}
+
 /* ── Inline Rename input styling ──────────────────────────────── */
 /* Blends the rename input with Obsidian's native file explorer look  */
 

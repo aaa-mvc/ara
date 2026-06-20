@@ -42,11 +42,11 @@ export default class InlineRenamePlugin extends Plugin {
             document.removeEventListener("click", this.onClick, true);
         });
 
-        console.log("[InlineRename] loaded. Active file:", this.app.workspace.getActiveFile()?.path ?? "(none)");
+        console.log("[ARA] loaded. Active file:", this.app.workspace.getActiveFile()?.path ?? "(none)");
     }
 
     onunload() {
-        console.log("[InlineRename] unloaded");
+        console.log("[ARA] unloaded");
     }
 
     // ── Click handler (capture phase) ─────────────────────────────
@@ -73,24 +73,24 @@ export default class InlineRenamePlugin extends Plugin {
         // ── Resolve file from container's data-path ────────────────
         const file = this.resolveFile(container, titleRow);
         if (!file) {
-            console.log("[InlineRename] click on file row but resolveFile failed");
+            console.log("[ARA] click on file row but resolveFile failed");
             return;
         }
 
         // ── Only intercept clicks on the already-active file ───────
         if (file.path !== this.activeFilePath) {
-            console.log("[InlineRename] not active file. clicked:", file.path, "active:", this.activeFilePath);
+            console.log("[ARA] not active file. clicked:", file.path, "active:", this.activeFilePath);
             return;
         }
 
         // ── Cooldown: ignore fast double-clicks to open ────────────
         const elapsed = Date.now() - this.activeFileSetAt;
         if (elapsed < 650) {
-            console.log("[InlineRename] cooldown active:", elapsed, "ms");
+            console.log("[ARA] cooldown active:", elapsed, "ms");
             return;
         }
 
-        console.log("[InlineRename] TRIGGERING RENAME for:", file.path);
+        console.log("[ARA] TRIGGERING RENAME for:", file.path);
 
         // ── Trigger inline rename ──────────────────────────────────
         evt.preventDefault();
@@ -121,10 +121,10 @@ export default class InlineRenamePlugin extends Plugin {
             if (path) {
                 const abstract = this.app.vault.getAbstractFileByPath(path);
                 if (abstract instanceof TFile) {
-                    console.log("[InlineRename] resolved file via data-path:", path);
+                    console.log("[ARA] resolved file via data-path:", path);
                     return abstract;
                 }
-                console.log("[InlineRename] data-path found but file not in vault:", path);
+                console.log("[ARA] data-path found but file not in vault:", path);
             }
             el = el.parentElement;
         }
@@ -159,7 +159,7 @@ export default class InlineRenamePlugin extends Plugin {
             ?? titleRow.querySelector(".nav-file-title-content") as HTMLElement | null;
         if (!textEl) return;
 
-        textEl.style.display = "none";
+        textEl.classList.add("inline-rename-hidden");
 
         // ── Create input ───────────────────────────────────────────
         const input = document.createElement("input");
@@ -185,7 +185,7 @@ export default class InlineRenamePlugin extends Plugin {
         // ── Cleanup ────────────────────────────────────────────────
         const cleanup = () => {
             if (input.parentNode) input.remove();
-            textEl.style.display = "";
+            textEl.classList.remove("inline-rename-hidden");
             this.isRenaming = false;
             this.renamingPath = null;
         };
@@ -211,9 +211,9 @@ export default class InlineRenamePlugin extends Plugin {
 
             try {
                 await this.app.vault.rename(file, newPath);
-                console.log(`[InlineRename] "${originalName}" → "${finalName}"`);
+                console.log(`[ARA] "${originalName}" → "${finalName}"`);
             } catch (err) {
-                console.error("[InlineRename] rename failed", err);
+                console.error("[ARA] rename failed", err);
             }
         };
 
